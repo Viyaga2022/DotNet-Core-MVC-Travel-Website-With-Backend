@@ -1,0 +1,27 @@
+﻿@model List<ToursModel>
+
+@{
+    ViewData["Title"] = "Tours";
+}
+<!-- tours section starts  -->
+
+<div class="container tours">
+
+    <h1 class="heading" data-aos="zoom-out">popular places</h1>
+
+    <section class="grid">
+        @foreach(var item in Model)
+        {
+            <div class="box" data-aos="fade-up">
+                <div class="price"><i class="fas fa-dollar-sign"></i><span>@item.Amount</span></div>
+                <img src="@item.TourImage" class="image" alt="">
+                <h3 class="name">@item.TourName</h3>
+                <p class="address">@item.Place</p>
+                <a href="#" class="btn">send enquiry</a>
+            </div>
+        }
+    </section>
+
+</div>
+
+<!-- tours section ends -->

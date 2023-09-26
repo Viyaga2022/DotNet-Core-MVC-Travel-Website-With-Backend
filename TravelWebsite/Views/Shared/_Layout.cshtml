@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TravelWebsite</title>
+
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />-->
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!--<link rel="stylesheet" href="~/TravelWebsite.styles.css" asp-append-version="true" />-->
+</head>
+<body>
+    <!-- header section starts  -->
+
+    <header class="header" data-aos="fade-down">
+
+        <section class="flex">
+
+            <a asp-area="" asp-controller="Trvia" asp-action="Index" class="logo">Travia.</a>
+
+            <nav class="navbar">
+                <a asp-area="" asp-controller="Travia" asp-action="Index">home</a>
+                <a asp-area="" asp-controller="Travia" asp-action="About">about</a>
+                <a asp-area="" asp-controller="Travia" asp-action="Tours">tours</a>
+                <a asp-area="" asp-controller="Travia" asp-action="Destinations">destinations</a>
+                <a asp-area="" asp-controller="Travia" asp-action="Contact">contact</a>
+            </nav>
+
+            <div id="menu-btn" class="fas fa-bars"></div>
+
+        </section>
+
+    </header>
+    <main role="main" class="pb-3">
+       @RenderBody()
+    </main>
+
+    <!--<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - TravelWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>-->
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>-->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

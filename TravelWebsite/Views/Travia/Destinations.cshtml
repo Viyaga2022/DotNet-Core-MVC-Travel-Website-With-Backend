@@ -1,0 +1,25 @@
+﻿@model List<DestinationsModel>
+
+@{
+    ViewData["Title"] = "Destinations";
+}
+<!-- destinations section starts  -->
+
+<div class="container destinations">
+
+    <h1 class="heading" data-aos="zoom-out">destinations</h1>
+
+    <section class="grid">
+
+        @foreach(var item in Model)
+        {
+            <div class="box" data-aos="zoom-in">
+                <img src="@item.DestinationImage" alt="">
+                <h3><span>@item.DestinationName</span></h3>
+            </div>
+        }
+    </section>
+
+</div>
+
+<!-- destinations section ends -->

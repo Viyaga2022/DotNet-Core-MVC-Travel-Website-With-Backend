@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Contact";
+    var data = ViewBag.Company[0]; // Receive Data From Controller
+}
+
+@model ContactModel 
+
+<!-- contact section starts  -->
+
+<div class="container contact">
+
+   <h1 class="heading" data-aos="zoom-out">contact us</h1>
+
+   <section>
+
+      <div class="row">
+
+         <iframe class="map" src="@data.GoogleMapUrl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-aos="flip-left"></iframe>
+
+         <form method="post" enctype="multipart/form-data" data-aos="flip-right">
+            <h3>get in touch</h3>
+
+            <input asp-for="@Model.Name" placeholder="enter your name" class="box">
+            <span asp-validation-for="@Model.Name"></span>
+
+            <input asp-for="@Model.Email" placeholder="enter your email" class="box">
+                <span asp-validation-for="@Model.Email"></span>
+
+                <input asp-for="@Model.Phone" placeholder="enter your phone number" class="box">
+                <span asp-validation-for="@Model.Phone"></span>
+
+                <textarea asp-for="@Model.Message" class="box" maxlength="1000" cols="30" rows="10"></textarea>
+                <span asp-validation-for="@Model.Message"></span>
+
+            <input type="submit" value="send message" name="send" class="btn">
+         </form>
+
+      </div>
+
+      <div class="grid">
+
+         <div class="box" data-aos="fade-up">
+            <i class="fas fa-phone"></i>
+            <h3>phone number</h3>
+            <a href="tel:1234567890">@data.CompanyPhoneNumber</a>
+            
+         </div>
+
+         <div class="box" data-aos="fade-up">
+            <i class="fas fa-envelope"></i>
+            <h3>email address</h3>
+            <a href="mailto:@data.CompanyEmail">@data.CompanyEmail</a>
+            
+         </div>
+
+         <div class="box" data-aos="fade-up">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>office address</h3>
+            <a href="@data.GoogleMapUrl" targt="_blank">@data.CompanyShortAddress</a>
+         </div>
+
+      </div>
+
+      <div class="credit">
+         &copy; copyright 2023 by <span>@data.CompanyName</span> | all rights reserved!
+      </div>
+
+   </section>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
+
+<!-- contact section ends -->
